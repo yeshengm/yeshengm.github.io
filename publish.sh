@@ -11,6 +11,6 @@ cp -a _site/. .
 git add --all & git commit -am "published on `date`"
 git push -f origin master
 # back to dev and delete master
-git checkout dev
+git checkout -f dev
 git branch -D master
 

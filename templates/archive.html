@@ -1,1 +1,7 @@
-$partial("templates/post-list.html")$
+<ul>
+    $for(posts)$
+        <li>
+            <a href="$url$">$title$</a> <span class="date">$date$</span>
+        </li>
+    $endfor$
+</ul>

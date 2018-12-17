@@ -7,7 +7,7 @@ stack exec site build
 git push -f origin dev
 # commit master
 git fetch --all
-git checkout -b master
+git checkout -b master --track origin/master
 cp -a _site/. .
 git add --all & git commit -am "published on `date`"
 git push -f origin master

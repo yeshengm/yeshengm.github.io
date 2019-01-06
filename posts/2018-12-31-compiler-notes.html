@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Notes on Compiler Construction</title>
+        <link rel="stylesheet" href="../css/default.css">
+        <link rel="stylesheet" href="../css/syntax.css">
+        <!--  -->
+    </head>
+    <body>
+        <div class="container">
+            <header>
+                <a href="../">Home</a>
+                <a href="../archive.html">Posts</a>
+                <a href="../wiki.html">Wiki</a>
+                <a href="../tools.html">Tools</a>
+                <!-- <a type="application/rss+xml" href="/feed.rss">RSS</a> -->
+            </header>
+            <div>
+                <h1 class="title"> Notes on Compiler Construction </h1>
+
+<span class="date">2018-12-31</span>
+
+<p>Disclaimer: this is my personal note, which can <em>possibly</em> have O(N) errors.</p>
+<h1 id="lexical-analysis">Lexical Analysis</h1>
+<p>A lexer is not necessary but beneficial for a compiler frontend. A lexer works on <em>regular languages</em>, transforming character streams into classified token streams. With a lexer, the parser no longer needs to care about annoying details such as whitespaces and identifiers. There are many existing tools for lexer generation, e.g. <code>flex</code> on UNIX. However for performance consideration, lexers and parsers are often hand-written.</p>
+<p>The theory behind a lexer is finite state automata. The construction of a lexer can be separated into several phases:</p>
+<ul>
+<li>Generate a <em>non-deterministic finite automaton</em>(NFA) based on the regular language.</li>
+<li>Convert the NFA into a <em>deterministic finite automaton</em> using powerset construction.</li>
+<li>Minimize the DFA. A typical algorithm is table filling, i.e. Myhill Nerode theorem.</li>
+</ul>
+<p>One can also directly generate the DFA from the regular language using <a href="http://matt.might.net/articles/implementation-of-regular-expression-matching-in-scheme-with-derivatives/">Brzozowski derivatives</a>, which is algebraic and elegant.</p>
+<h1 id="parsing">Parsing</h1>
+<p>Parsing transforms token streams into parse trees. To do parsing on a language, formal definitions are required for these languages. <em>Context free grammers</em>(CFG) are thus introduced to formally define context free languages. According to the Chomsky hierarchy, there are four classes on languages: recursively enumerable, context sensitive, context free and regular. Generally, the <em>word problem</em> (whether a string conforms to a grammer) is undecidable. But it can be solved efficiently with constraints.</p>
+<p>Ambiguity can happen in parsing and the problem is two-fold: derivations with different orders and ambiguity in the grammer itself. For the first issue, we can replace parse trees with abstract syntax trees. For the ambiguity in the grammer itself, we can rewrite the production rules to reflect precedence and associativity.</p>
+<p>Several parsing methods:</p>
+<ul>
+<li>CYK parsing: iteratively apply production rules on substrings till saturation. The language should be defined in Chomsky normal form. The running time of this algorithm is O(N^3). (<a href="https://www.xarg.org/tools/cyk-algorithm/">animation</a>)</li>
+<li>Recursive-descent parsing(predictive parsing): parses top-down. This algorithm only works when the first terminal symbol in each production rules gives enough information. Some techniques to enforce this are left recursion elimination and left factoring. Some information can be calcuated to help us build a predictive parser using <code>FIRST</code>, <code>FOLLOW</code> and <code>nullable</code> sets, and these sets are also computed iteratively till saturation. If the grammer itself is left-recursive by nature, then some kind of workaround is required. A possible solution is to generate all possible parse trees for the input source code, and then eliminate invalid parse trees in later phases. Another solution is to apply lookaheads, also known as LL(k), which is left-to-right, left-most derivation with k-token lookahead. Recursive descent parsers are often taken by mainstream compilers due to its flexibility and user-friendly error reporting.</li>
+<li>Shift-reduce parsing: parses bottom up, also known as LR(k), which is left-to-right, right-most derivation parsing with k-token lookahead. This approach is often used for parser generator tools such as yacc due to the fact that LR grammers are a superset of LL grammers. Shift-reduce parsers can also be viewed as automata with a stack, i.e. pushdown automata. LR(0): LR parser with no lookahead, the key operations are CLOSURE and GOTO; SLR: LR(0) with FOLLOW set(slightly better for reduce); LR(1): LR(0) with one symbol lookahead; LALR(1): merged version of LR(1).</li>
+</ul>
+<p>N.B. all of the above-mentioned parsing algorithms require the grammer to be unambiguous. Therefore, it is the language spec authors’ responsibility to keep the language spec unambiguous. Typical examples are the matched “else” issue and operator precedence parsing.</p>
+<p>Resouces:</p>
+<ul>
+<li><a href="http://blog.reverberate.org/2013/09/ll-and-lr-in-context-why-parsing-tools.html">Parsing tools in the real world</a></li>
+<li><a href="https://code.woboq.org/gcc/gcc/c/c-parser.c.html">GCC parser for c-family langs (awesome code!)</a></li>
+</ul>
+
+            </div>
+        </div>
+
+        <div class="footer">
+            <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/80x15.png" /></a>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Haskell Programming Environment in 2018</title>
+        <link rel="stylesheet" href="../css/default.css">
+        <link rel="stylesheet" href="../css/syntax.css">
+        <!--  -->
+    </head>
+    <body>
+        <div class="container">
+            <header>
+                <a href="../">Home</a>
+                <a href="../archive.html">Posts</a>
+                <a href="../wiki.html">Wiki</a>
+                <a href="../tools.html">Tools</a>
+                <!-- <a type="application/rss+xml" href="/feed.rss">RSS</a> -->
+            </header>
+            <div>
+                <h1 class="title"> Haskell Programming Environment in 2018 </h1>
+
+<span class="date">2018-12-18</span>
+
+<h1 id="stack-and-cabal">Stack and Cabal</h1>
+<p><em>Cabal</em> is Haskell’s package manager. However, due to complex dependencies beween packages, Cabal might not be able to resolve these issues. Then <em>Stack</em> comes to rescue, which maintains consistent snapshots of Cabal packages. One can compare cabal to pip and stack to anaconda.</p>
+<p>Stack can either be used with an exsiting cabal project or use its own yaml config file. To create a stack project on top of cabal, use <code>stack init</code>. To create a new stack project, use <code>stack new project_name</code>. Stack provides handy shortcuts: build, repl, ghci, exec, test etc.</p>
+<h1 id="testing">Testing</h1>
+<p>I use <em>HUnit</em> for unit tests, <em>QuickCheck</em> for property checks. I also use <em>tasty</em> to structure the test cases in a hierarchical manner and selectively execute test cases.</p>
+<h1 id="haskell-in-vim">Haskell in Vim</h1>
+<p>Actually Vim does not have good support for Haskell type inference/checking (Emacs does a better job here). I’m currently use ALE plugin and hlint to do async linting. This is far from perfect, but works minimally. AFAIK, most existing Vim Haskell plugins are fragile and easy to break. Maybe Langugue Server Protocol can fill this gap, but those projects are still WIP.</p>
+
+            </div>
+        </div>
+
+        <div class="footer">
+            <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/80x15.png" /></a>
+        </div>
+    </body>
+</html>

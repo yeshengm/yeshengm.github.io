@@ -1,6 +1,7 @@
 #!/usr/bin/zsh
 # commit dev
 git checkout dev
+git push -f
 stack exec site clean
 stack exec site build
 git push -f origin dev
@@ -14,4 +15,4 @@ git push -f origin master
 git checkout -f dev
 git branch -D master
 # sync to andrew
-rsync -r -a -vv --delete _site/ yeshengm@linux.andrew.cmu.edu:~/www/
+# rsync -r -a -vv --delete _site/ yeshengm@linux.andrew.cmu.edu:~/www/

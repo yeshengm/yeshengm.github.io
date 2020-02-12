@@ -1,7 +1,6 @@
 #!/usr/bin/zsh
 # commit dev
 git checkout dev
-git add --all & git commit -am "src updated on `date`"
 stack exec site clean
 stack exec site build
 git push -f origin dev

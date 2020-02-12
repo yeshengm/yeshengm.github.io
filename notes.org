@@ -1,0 +1,30 @@
+---
+title: Home
+---
+* System Papers
+- FLP impossibility
+- Consensus on Transaction Commit
+- Viewstamp Replication
+- Paxos
+- ZooKeeper
+- Raft
+- TODO State machine replication
+- TODO etcd
+- Lamport clock (CACM '78)
+- Linearizability (TOPLAS '90)
+- Chord (SIGCOMM '01)
+- GFS (SOSP '03)
+- MapReduce (OSDI '04)
+- Bigtable (OSDI '06)
+- Chubby (OSDI '06)
+- Dynamo (SOSP '07)
+- sandra?
+- DryadLINQ (OSDI '08)
+- Spanner (OSDI '12)
+- Spark
+- CAP
+- TODO leases
+- TODO Eventual consistency
+- TODO Tail at Scale
+- TODO Corfu
+- TODO Weighted Voting for Replicated Data

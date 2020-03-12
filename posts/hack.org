@@ -1,0 +1,19 @@
+---
+title: Notes for System Hackers
+date: 2020-03-08
+---
+
+
+* Emails
+1. Unsubscribe!
+2. Use filters if certain emails occupy most space of the inbox.
+
+* Commandline Efficiency
+1. Terminal emulator: iterm2.
+2. Remote server access: EternalTerminal/ssh.
+3. Shell: zsh/bash.
+4. Unix tools: less, head, tail, sort, uniq, comm, column, paste, grep, sed, awk, cut, xargs, find, watch, parallel, tee.
+5. Terminal multiplexer: tmux.
+6. Editor: Vim, Emacs.
+
+

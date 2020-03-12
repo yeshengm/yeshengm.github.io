@@ -1,30 +1,40 @@
 ---
-title: Home
+title: Notes
 ---
-* System Papers
-- FLP impossibility
-- Consensus on Transaction Commit
-- Viewstamp Replication
-- Paxos
-- ZooKeeper
-- Raft
-- TODO State machine replication
-- TODO etcd
-- Lamport clock (CACM '78)
-- Linearizability (TOPLAS '90)
-- Chord (SIGCOMM '01)
-- GFS (SOSP '03)
-- MapReduce (OSDI '04)
-- Bigtable (OSDI '06)
-- Chubby (OSDI '06)
-- Dynamo (SOSP '07)
-- sandra?
-- DryadLINQ (OSDI '08)
-- Spanner (OSDI '12)
-- Spark
-- CAP
-- TODO leases
-- TODO Eventual consistency
-- TODO Tail at Scale
-- TODO Corfu
-- TODO Weighted Voting for Replicated Data
+* Distributed Systems
+** Fundamentals
+- [[https://groups.csail.mit.edu/tds/papers/Lynch/jacm85.pdf][FLP Impossibility]] (JACM '85) TODO
+- Lamport clock (CACM '78) TODO
+- Vector clock TODO
+- Linearizability (TOPLAS '90) TODO
+- Consistencies
+- CAP TODO
+** Replication
+- leases TODO
+- Weighted Voting for Replicated Data TODO
+- State machine replication TODO
+** Consensus, Distributed Txns and Coordination
+- Paxos TODO
+- Consensus on Transaction Commit TODO
+- Viewstamp Replication TODO
+- [[https://static.usenix.org/event/atc10/tech/full_papers/Hunt.pdf][ZooKeeper]] (ATC'10)
+- [[https://raft.github.io/raft.pdf][Raft]] (ATC '14)
+- 2PC TODO
+- etcd TODO
+- Chord (SIGCOMM '01) TODO
+- Chubby (OSDI '06) TODO
+- Corfu TODO
+** Big Data-ish Systems
+- [[https://static.googleusercontent.com/media/research.google.com/en//archive/gfs-sosp2003.pdf][GFS]] (SOSP '03)
+- [[https://static.googleusercontent.com/media/research.google.com/en//archive/mapreduce-osdi04.pdf][MapReduce]] (OSDI '04)
+- Dremel TODO
+- MegaStore TODO
+- Percolator TODO
+- Bigtable (OSDI '06) TODO
+- Dynamo (SOSP '07) TODO
+- sandra? TODO
+- DryadLINQ (OSDI '08) TODO
+- Spanner (OSDI '12) TODO
+- Spark TODO
+- Eventual consistency TODO
+- Tail at Scale TODO

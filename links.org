@@ -6,6 +6,7 @@ title: Interesting Links
 - [[https://en.wikichip.org/wiki/WikiChip][WikiChip]]
 - [[https://stackexchange.com/performance][StackExchange Performance]]
 - [[https://downloads.haskell.org/~ghc/latest/docs/html/libraries/index.html][Haskell hierarchical libraries]]
-- [[http://matt.might.net/articles/what-cs-majors-should-know/What][every CS major student should know]]
+- [[http://matt.might.net/articles/what-cs-majors-should-know/][What CS majors should know]]
 - https://github.com/VGraupera/1on1-questions
 - https://ucbrise.github.io/cs262a-spring2018/
+- https://wiki.debian.org/WhyTheName

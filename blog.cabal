@@ -1,11 +1,33 @@
-name:               blog
-version:            0.1.0.0
-build-type:         Simple
-cabal-version:      >= 1.10
+cabal-version: 1.12
 
-executable site
-  main-is:          site.hs
-  build-depends:    base == 4.*
-                  , hakyll == 4.13.*
-  ghc-options:      -threaded
+-- This file has been generated from package.yaml by hpack version 0.31.2.
+--
+-- see: https://github.com/sol/hpack
+--
+-- hash: a3bd8028a9aecce9a1460456e7c0d8c1f808cfd87583c01b0ce674e3e444e2de
+
+name:           blog
+version:        0.1.0.0
+homepage:       https://github.com/yeshengm/yeshengm.github.io#readme
+bug-reports:    https://github.com/yeshengm/yeshengm.github.io/issues
+author:         Yesheng Ma
+maintainer:     kimi.ysma@gmail.com
+license:        BSD3
+build-type:     Simple
+
+source-repository head
+  type: git
+  location: https://github.com/yeshengm/yeshengm.github.io
+
+executable hakyll
+  main-is: Main.hs
+  other-modules:
+      Paths_blog
+  hs-source-dirs:
+      ./.
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      base >=4.7 && <5
+    , hakyll
+    , pandoc
   default-language: Haskell2010

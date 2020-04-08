@@ -1,0 +1,20 @@
+name:                blog
+version:             0.1.0.0
+github:              "yeshengm/yeshengm.github.io"
+license:             BSD3
+author:              "Yesheng Ma"
+maintainer:          "kimi.ysma@gmail.com"
+
+dependencies:
+- base >= 4.7 && < 5
+- hakyll
+- pandoc
+
+executables:
+  hakyll:
+    main:                Main.hs
+    source-dirs:         .
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N

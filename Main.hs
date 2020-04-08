@@ -2,9 +2,17 @@
 {-# LANGUAGE OverloadedStrings #-}
 import           Data.Monoid (mappend)
 import           Hakyll
+import           Text.Pandoc
 
 
 --------------------------------------------------------------------------------
+-- withToc :: WriterOptions
+-- withToc = defaultHakyllWriterOptions
+        -- { writerTableOfContents = True
+        -- , writerTOCDepth = 2
+        -- , writerTemplate = Just "Contents\n$toc$\n$body$"
+        -- }
+
 main :: IO ()
 main = hakyll $ do
     match "images/*" $ do

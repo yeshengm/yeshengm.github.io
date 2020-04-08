@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <title>Home</title>
+        <title>Notes</title>
         <link rel="stylesheet" href="./css/default.css">
         <link rel="stylesheet" href="./css/syntax.css">
         <!--  -->
@@ -12,39 +12,64 @@
             <header>
                 <a href="./">Home</a>
                 <a href="./notes.html">Notes</a>
-                <!-- <a href="/archive.html">Posts</a> -->
+                <a href="./archive.html">Posts</a>
                 <a href="./links.html">Links</a>
                 <!-- <a type="application/rss+xml" href="/feed.rss">RSS</a> -->
             </header>
             <div>
-                <h1 id="system-papers">System Papers</h1>
+                <h1 id="operating-systems">Operating Systems</h1>
+<h2 id="principles"><span class="todo TODO">TODO</span> Principles</h2>
+<h2 id="file-systems"><span class="todo TODO">TODO</span> File Systems</h2>
+<h1 id="distributed-systems">Distributed Systems</h1>
+<h2 id="fundamentals">Fundamentals</h2>
 <ul>
-<li>FLP impossibility</li>
-<li>Consensus on Transaction Commit</li>
-<li>Viewstamp Replication</li>
-<li>Paxos</li>
-<li>ZooKeeper</li>
-<li>Raft</li>
-<li>TODO State machine replication</li>
-<li>TODO etcd</li>
-<li>Lamport clock (CACM ’78)</li>
-<li>Linearizability (TOPLAS ’90)</li>
-<li>Chord (SIGCOMM ’01)</li>
+<li>FLP Impossibility (JACM ’85) TODO</li>
+<li>Lamport clock (CACM ’78) TODO</li>
+<li>Vector clock TODO</li>
+<li>Linearizability (TOPLAS ’90) TODO</li>
+<li>Consistencies</li>
+<li>CAP TODO</li>
+</ul>
+<h2 id="replication">Replication</h2>
+<ul>
+<li>leases TODO</li>
+<li><em>Weighted Voting for Replicated Data</em> (SOSP ’79): quorum system (N &lt; R + W), which means reads and writes always overlap.</li>
+<li>State machine replication TODO</li>
+</ul>
+<h2 id="consensus-distributed-txns-and-coordination">Consensus, Distributed Txns and Coordination</h2>
+<ul>
+<li>Paxos TODO</li>
+<li>Consensus on Transaction Commit TODO</li>
+<li>Viewstamp Replication TODO</li>
+<li>ZooKeeper (ATC’10)</li>
+<li><em>In Search of an Understandable Consensus Algorithm</em> (ATC ’14): the Raft consensus algorithm (to be precise, it’s a total-order broadcast protocol).</li>
+<li>2PC TODO</li>
+<li>etcd TODO</li>
+<li>Chord (SIGCOMM ’01) TODO</li>
+<li>Chubby (OSDI ’06) TODO</li>
+<li>Corfu TODO</li>
+</ul>
+<h2 id="distributed-file-systems">Distributed File Systems</h2>
+<ul>
+<li><em>Scale and Performance in a Distributed File System</em> (SOSP ’87): aka AFS, with the concept of copy semantics.</li>
+<li><em>Frangipani: A Scalable Distributed File System</em> (SOSP ’97):</li>
 <li>GFS (SOSP ’03)</li>
+</ul>
+<h2 id="big-data-ish-systems">Big Data-ish Systems</h2>
+<ul>
 <li>MapReduce (OSDI ’04)</li>
-<li>Bigtable (OSDI ’06)</li>
-<li>Chubby (OSDI ’06)</li>
-<li>Dynamo (SOSP ’07)</li>
-<li>sandra?</li>
-<li>DryadLINQ (OSDI ’08)</li>
-<li>Spanner (OSDI ’12)</li>
-<li>Spark</li>
-<li>CAP</li>
-<li>TODO leases</li>
-<li>TODO Eventual consistency</li>
-<li>TODO Tail at Scale</li>
-<li>TODO Corfu</li>
-<li>TODO Weighted Voting for Replicated Data</li>
+<li>Dremel TODO</li>
+<li>MegaStore TODO</li>
+<li>Percolator TODO</li>
+<li>Bigtable (OSDI ’06) TODO</li>
+<li>Dynamo (SOSP ’07) TODO</li>
+<li>sandra? TODO</li>
+<li>DryadLINQ (OSDI ’08) TODO</li>
+<li>Spanner (OSDI ’12) TODO</li>
+<li>Spark TODO</li>
+<li>Eventual consistency TODO</li>
+<li>Tail at Scale TODO</li>
+<li><em>Amazon Aurora: Design Considerations for High Throughput Cloud-Native Relational Databases</em> (SIGMOD ’17): intersting 6-way replication, redolog offloading and failover.</li>
 </ul>
             </div>
         </div>

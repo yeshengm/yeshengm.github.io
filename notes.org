@@ -40,7 +40,7 @@ title: Notes
 - Dynamo (SOSP '07) TODO
 - sandra? TODO
 - DryadLINQ (OSDI '08) TODO
-- Spanner (OSDI '12) TODO
+- /Spanner: Google’s Globally Distributed Database/ (OSDI '12): mind-blowing system with a surprising combination of serializability(2PL,2PC), MVCC(TrueTime API), linearizability(Paxos), sharding(Placement Driver) and data model(SQL).
 - Spark TODO
 - Eventual consistency TODO
 - Tail at Scale TODO

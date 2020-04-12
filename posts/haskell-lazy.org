@@ -1,0 +1,53 @@
+---
+title: Lazy Evaluation Design Pattern in Haskell
+date: 2020-04-11
+---
+
+Haskell has a call-by-name evaluation model, which implies an important fact: /a variable does not necessarily represent a value/! A value is a term that can no longer be reduced. Typical values include lambda abstraction and built-in value (such as integer, string). In a call-by-name setting, a variable can range over either values or divergent computation. For example, you can easily make a divergent variable in GHCi.
+
+#+BEGIN_SRC
+Prelude> let x = x
+Prelude> x
+....... never ending substitution
+#+END_SRC
+
+In fact, call-by-name evaluation's ability to encode divergent computation is somewhat similar to coinduction because programmers can easily denote a computation with a variable. Such kind of computation is called a /thunk/ in Haskell jargon. Due to the nature of call-by-name evaluation that large terms are often substuted into a function application, Haskell does translate expressions into graphs to share common structures and also performs graph reduction to optimize redudant expressions.
+
+So far so good. We can now discuss how to leverage the fact that a variable can represent a divergent computation to write succinct and efficient Haskell programs. As a case study, let's look at the Hello World of Haskell: Fibonacci.
+
+#+BEGIN_SRC
+fib n = fibs!!n
+fibs = 0 : 1 : zipWith (+) fibs (tail fibs)
+#+END_SRC
+
+Here, we use the variable =fibs= of type =[Integer]=, to encode the infinite list of Fibonacci numbers. The "bang-bang" pattern =fibs!!n= forces a computation to unroll the divergent variable =fibs=. Let's trace through the evaluation steps for =fib 3= to see what actually happened. For simplicity, we just assume that =!!= is implemented as a sequence of =tail= calls followed by a =head= (actually it is implemented in tail recursion).
+
+#+BEGIN_SRC
+   fib 3
+-> fibs !! 3
+-> head $ tail $ tail $ fibs
+-> head $ tail $ tail $ (0 : 1 : zipWith (+) fibs (tail fibs))
+-> head $ tail $ (1 : zipWith (+) fibs (tail fibs))
+-> head $ zipWith (+) fibs (tail fibs)               -- head forces eval on zipWith!
+-> head $ zipWith (+) fibs (tail fibs)               -- zipWith forces eval fibs and tail fibs
+-> head $ zipWith (+) (0 : 1 : zipWith (+) fibs (tail fibs)) (tail (0 : 1 : zipWith (+) fibs (tail fibs)))
+-> head $ zipWith (+) (0 : 1 : zipWith (+) fibs (tail fibs)) (1 : zipWith (+) fibs (tail fibs))
+-> head $ 1 : zipWith (+) (1 : zipWith (+) fibs' (tail fibs')) (1 : zipWith (+) fibs' (tail fibs'))
+-> 1
+#+END_SRC
+
+The real magic happens when we unroll the =zipWith= function application in step 9. Instead of referecning the original list head =fib=, it replaces =fib= in the unevaluted thunk with =fib'=, which is the second node in the list =fib=. This is essential for the program to progress.
+
+Another example is to compute the nth Hamming number. With the "bang-bang" design pattern, we can easily have the following [[https://www.codewars.com/kata/reviews/5458879154d8fef398000224/groups/545f63c45bff82f49a00011c][program]].
+
+#+BEGIN_SRC
+hamming  :: Int -> Int
+hamming n = h !! (n-1)
+    where h = 1 : map (*2) h `f` map (*3) h `f` map (*5) h
+            where f xxs@(x:xs) yys@(y:ys)
+                    | x==y = x : f xs ys
+                    | x<y  = x : f xs yys
+                    | x>y  = y : f xxs ys
+#+END_SRC
+
+We can now see the pattern here. The left hand side /variable/ defines a divergent computation, in this case a infinite list. The same /variables/ in the right hand side expression simply reference that compuatation and trigger evaluation if necessary.

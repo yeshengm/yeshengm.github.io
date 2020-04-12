@@ -22,12 +22,12 @@ header {
     text-align: center;
 }
 
-code {
-    padding: 0 0.4em;
-    font-size: 14px;
-    overflow: auto;
-    background-color: whitesmoke
-}
+/* code { */
+    /* padding: 0 0.4em; */
+    /* font-size: 14px; */
+    /* overflow: auto; */
+    /* background-color: whitesmoke */
+/* } */
 
 a {
     color: black;

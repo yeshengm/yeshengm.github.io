@@ -6,8 +6,8 @@ import           Text.Pandoc
 
 
 --------------------------------------------------------------------------------
--- withToc :: WriterOptions
--- withToc = defaultHakyllWriterOptions
+-- wopt :: WriterOptions
+-- wopt = defaultHakyllWriterOptions
         -- { writerTableOfContents = True
         -- , writerTOCDepth = 2
         -- , writerTemplate = Just "Contents\n$toc$\n$body$"
@@ -29,7 +29,7 @@ main = hakyll $ do
             >>= loadAndApplyTemplate "templates/default.html" defaultContext
             >>= relativizeUrls
 
-    match "posts/*" $ do
+    match "posts/*.org" $ do
         route $ setExtension "html"
         compile $ pandocCompiler
             >>= loadAndApplyTemplate "templates/post.html"    postCtx

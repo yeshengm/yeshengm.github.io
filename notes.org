@@ -10,6 +10,7 @@ title: Notes
 - Lamport clock (CACM '78) TODO
 - Vector clock TODO
 - Linearizability (TOPLAS '90) TODO
+- Tail at Scale TODO
 - Consistencies
 - CAP TODO
 ** Replication
@@ -27,21 +28,29 @@ title: Notes
 - Chord (SIGCOMM '01) TODO
 - Chubby (OSDI '06) TODO
 - Corfu TODO
+** Cluster Management
+- /Mesos: A Platform for Fine-Grained Resource Sharing in the Data Center/ (NSDI '11): de-centralized "offer"-based resource management, allowing multiple frameworks using a single RM.
+- /Large-scale cluster management at Google with Borg/ (EuroSys '15): an experience paper on how to scale-up an RM and how to better utilize cluster resource (results are interesting).
 ** Distributed File Systems
 - /Scale and Performance in a Distributed File System/ (SOSP '87): aka AFS, with the concept of copy semantics.
 - /Frangipani: A Scalable Distributed File System/ (SOSP '97):
 - GFS (SOSP '03)
-** Big Data-ish Systems
-- MapReduce (OSDI '04)
+** Dataflow Systems
+- /MapReduce: Simplified Data Processing on Large Clusters/ (OSDI '04): /the/ paper for parallel programming in large-scale clusters (compared with HPC-style).
+- /DryadLINQ: A System for General-Purpose Distributed Data-ParallelComputing Using a High-Level Language/ (OSDI '08): SQL-like DSL(.NET LINQ) for distributed data processing. Interesting language-integration to make distributed computing feel like local data collection manipulation!
+- /FlumeJava: Easy, Efficient Data-Parallel Pipelines/ (PLDI '10): a similar dataflow system based on MapReduce at Google.
+- /Resilient distributed datasets: A fault-tolerant abstraction for in-memory cluster computing/ (NSDI '12): distributed fault-tolerant immutable lineage graph computation engine.
+- /Spark SQL: Relational Data Processing in Spark/ (SIGMOD '15): quite similar to DryadLINQ, but compiles dataframe/SQL to Spark's RDD abstraction.
+** Distributed/Cloud Databases
 - Dremel TODO
 - MegaStore TODO
 - Percolator TODO
 - Bigtable (OSDI '06) TODO
 - Dynamo (SOSP '07) TODO
 - sandra? TODO
-- DryadLINQ (OSDI '08) TODO
 - /Spanner: Google’s Globally Distributed Database/ (OSDI '12): mind-blowing system with a surprising combination of serializability(2PL,2PC), MVCC(TrueTime API), linearizability(Paxos), sharding(Placement Driver) and data model(SQL).
-- Spark TODO
 - Eventual consistency TODO
-- Tail at Scale TODO
 - /Amazon Aurora: Design Considerations for High Throughput Cloud-Native Relational Databases/ (SIGMOD '17): intersting 6-way replication, redolog offloading and failover.
+* Databases
+** Query Compilation
+- /Efficiently Compiling Efficient Query Plans for Modern Hardware/ (VLDB '11): data-centric query processing + LLVM query compilation.

@@ -3,6 +3,9 @@ title: Notes for System Hackers
 date: 2020-03-08
 ---
 
+* Ergonomics
+- Keyboard: I use an HHKB keyboard cuz I feel reluctant to move my fingers to arrow keys.
+- Monitor: an 4k monitor is a must. I also use Flux to make color warmer, which is good for eyes.
 
 * Emails
 1. Unsubscribe!
@@ -12,9 +15,22 @@ date: 2020-03-08
 1. Terminal emulator: iterm2.
 2. Remote server access: et/ssh.
 3. Shell: zsh/bash.
-4. Unix tools: less, head, tail, sort, uniq, comm, column, paste, grep, sed, awk, cut, xargs, find, watch, parallel, tee.
+4. Unix tools: less, head, tail, sort, uniq, comm, column, paste, grep, sed, awk, cut, xargs, find, watch, parallel, tee, ripgrep, fzf.
 5. Terminal multiplexer: tmux.
-6. Editor: Vim, Emacs.
+
+* Text Editor
+1. NeoVim, or Vim > 8.0.
+2. Useful Vi plugins:
+   - Language Server: coc.nvim.
+   - 
+
+* Web Browser
+1. Use Firefox instead of Chrome, so as to prevent Google from stalking your browser data.
+2. Build your own custom search engine with [[https://superuser.com/a/7374/907502][bookmark]].
 
 
 
+
+#+BEGIN_QUOTE
+Inspired by Dave Anderson's /Software Engineering for Systems Hackers/.
+#+END_QUOTE

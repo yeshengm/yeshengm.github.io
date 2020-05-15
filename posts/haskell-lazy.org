@@ -1,6 +1,6 @@
 ---
 title: Lazy Evaluation Design Pattern in Haskell
-date: 2020-04-11
+date: 2020-04-12
 ---
 
 Haskell has a call-by-name evaluation model, which implies an important fact: /a variable does not necessarily represent a value/! A value is a term that can no longer be reduced. Typical values include lambda abstraction and built-in value (such as integer, string). In a call-by-name setting, a variable can range over either values or divergent computation. For example, you can easily make a divergent variable in GHCi.

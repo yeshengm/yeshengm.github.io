@@ -7,6 +7,7 @@ git push -f origin dev
 git fetch --all
 git branch -D master
 git checkout -b master --track origin/master
+stack build
 stack exec hakyll clean
 stack exec hakyll build
 cp -a _site/. .

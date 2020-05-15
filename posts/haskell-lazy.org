@@ -1,6 +1,6 @@
 ---
 title: Lazy Evaluation Design Pattern in Haskell
-date: 2020-04-12
+date: 2020-04-11
 ---
 
 Haskell has a call-by-name evaluation model, which implies an important fact: /a variable does not necessarily represent a value/! A value is a term that can no longer be reduced. Typical values include lambda abstraction and built-in value (such as integer, string). In a call-by-name setting, a variable can range over either values or divergent computation. For example, you can easily make a divergent variable in GHCi.
@@ -8,7 +8,7 @@ Haskell has a call-by-name evaluation model, which implies an important fact: /a
 #+BEGIN_SRC haskell
 Prelude> let x = x
 Prelude> x
-....... never ending substitution
+....... divergent substitution
 #+END_SRC
 
 In fact, call-by-name evaluation's ability to encode divergent computation is somewhat similar to coinduction because programmers can easily denote a computation with a variable. Such kind of computation is called a /thunk/ in Haskell jargon. Due to the nature of call-by-name evaluation that large terms are often substuted into a function application, Haskell does translate expressions into graphs to share common structures and also performs graph reduction to optimize redudant expressions.

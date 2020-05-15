@@ -42,8 +42,10 @@ title: Notes
 - /FlumeJava: Easy, Efficient Data-Parallel Pipelines/ (PLDI '10): a similar dataflow system based on MapReduce at Google.
 - /Resilient distributed datasets: A fault-tolerant abstraction for in-memory cluster computing/ (NSDI '12): distributed fault-tolerant immutable lineage graph computation engine.
 - /Spark SQL: Relational Data Processing in Spark/ (SIGMOD '15): quite similar to DryadLINQ, but compiles dataframe/SQL to Spark's RDD abstraction.
-** Distributed/Cloud Databases
+- /F1 Query: Declarative Querying at Scale/ (VLDB '18): unified OLTP/OLAP/ETL query engine from Google, supporting multiple data sources and an extensible UDF server.
 - Dremel TODO
+** Distributed/Cloud Databases
+- F1 DB TODO
 - MegaStore TODO
 - Percolator TODO
 - Bigtable (OSDI '06) TODO

@@ -10,3 +10,4 @@ title: Interesting Links
 - https://github.com/VGraupera/1on1-questions
 - https://ucbrise.github.io/cs262a-spring2018/
 - https://wiki.debian.org/WhyTheName
+- http://www.brendangregg.com/blog/2017-05-09/cpu-utilization-is-wrong.html

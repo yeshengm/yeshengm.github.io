@@ -1,0 +1,14 @@
+---
+title: Make Apache Spark's Catalyst (A Bit) Faster Again
+date: 2020-05-10
+---
+
+Spark SQL's catalyst query optimizer has a notoriously slow to process queries, which hurts the experience of simple adhoc queries badly. During my internship at Databricks, I worked on improving the performance of catalyst optimizer and landed a few changes to the Spark trunk. The total performance gain is more than 10% for TPC-DS while the changes are relatively simple and intuitive. Here are my approaches.
+
+* Caching Complex Computation
+Catalyst's logical query plans are made immutable, and most attribute accesors are implemented with Scala's =def= keyword. This is extremely costly for expensive operations such as constraint calculation in a query plan. For a deep query plan tree, it is O(N^2) complexity to calculate the constraint from bottom up! To make things worse, the constraint calculation itself involves fairly expensive hashing and probing. We can clearly see that the overhead brought by =HashMap= operations easily dominated the profiling result.
+
+The soluation is to simply convert =def= to =lazy val=. Note that =lazy val= does not come for free in Scala, it still incurs initialization overhead and memory usage. Thus it is wiser to only convert costly computation such as constraints into =lazy val=.
+
+* Making Passes More Efficient
+The original design goal for the Catalyst optimizer is to have a extensible rule engine. However, some optimizer rules such as predicate pushdown is made into two rules =PushPredicate= and =PushPredicateThroughJoin=. This is unnecessary since we always want a predicate rule to be pushed down as far as possible to reduce RDD size as much as possible. Thus a reasonable approach is to combine multiple logically related optimizer rules into a single one. The benefits are two-fold: first, it takes fewer iterations for Catalyst to converge on a query plan; second, query plans are modified less often (immutable tree structure modification is expensive).

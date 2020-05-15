@@ -6,6 +6,7 @@ title: Notes
 ** TODO File Systems
 * Distributed Systems
 ** Fundamentals
+- /Implementing Remote Procedure Calls/ (TOCS '84): the seminal paper on making remote calls look like local function calls. (Recent trends seem to admit the fundamental difference between remote and local calls though.)
 - FLP Impossibility (JACM '85) TODO
 - Lamport clock (CACM '78) TODO
 - Vector clock TODO

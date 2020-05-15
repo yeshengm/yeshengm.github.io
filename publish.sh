@@ -2,13 +2,13 @@
 # commit dev
 git checkout dev
 git push -f
-stack exec hakyll clean
-stack exec hakyll build
 git push -f origin dev
 # commit master
 git fetch --all
 git branch -D master
 git checkout -b master --track origin/master
+stack exec hakyll clean
+stack exec hakyll build
 cp -a _site/. .
 git add --all & git commit -am "published on `date`"
 git push -f origin master

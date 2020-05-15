@@ -1,7 +1,7 @@
 #!/usr/bin/zsh
+set -x
 # commit dev
 git checkout dev
-git push -f
 git push -f origin dev
 # commit master
 git fetch --all

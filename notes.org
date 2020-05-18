@@ -35,7 +35,9 @@ title: Notes
 ** Distributed File Systems
 - /Scale and Performance in a Distributed File System/ (SOSP '87): aka AFS, with the concept of copy semantics.
 - /Frangipani: A Scalable Distributed File System/ (SOSP '97):
-- GFS (SOSP '03)
+- GFS (SOSP '03) TODO
+- HDFS TODO
+- S3 TODO
 ** Dataflow Systems
 - /MapReduce: Simplified Data Processing on Large Clusters/ (OSDI '04): /the/ paper for parallel programming in large-scale clusters (compared with HPC-style).
 - /DryadLINQ: A System for General-Purpose Distributed Data-ParallelComputing Using a High-Level Language/ (OSDI '08): SQL-like DSL(.NET LINQ) for distributed data processing. Interesting language-integration to make distributed computing feel like local data collection manipulation!
@@ -44,6 +46,7 @@ title: Notes
 - /Spark SQL: Relational Data Processing in Spark/ (SIGMOD '15): quite similar to DryadLINQ, but compiles dataframe/SQL to Spark's RDD abstraction.
 - /F1 Query: Declarative Querying at Scale/ (VLDB '18): unified OLTP/OLAP/ETL query engine from Google, supporting multiple data sources and an extensible UDF server.
 - Dremel TODO
+- Presto TODO
 ** Distributed/Cloud Databases
 - F1 DB TODO
 - MegaStore TODO

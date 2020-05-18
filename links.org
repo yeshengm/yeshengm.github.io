@@ -11,3 +11,4 @@ title: Interesting Links
 - https://ucbrise.github.io/cs262a-spring2018/
 - https://wiki.debian.org/WhyTheName
 - http://www.brendangregg.com/blog/2017-05-09/cpu-utilization-is-wrong.html
+- https://www.usenix.org/sites/default/files/conference/protected-files/lisa19_maheshwari.pdf

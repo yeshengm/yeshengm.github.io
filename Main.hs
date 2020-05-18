@@ -12,6 +12,14 @@ import           Text.Pandoc
         -- , writerTOCDepth = 2
         -- , writerTemplate = Just "Contents\n$toc$\n$body$"
         -- }
+myFeedConfiguration :: FeedConfiguration
+myFeedConfiguration = FeedConfiguration
+    { feedTitle       = "Blog"
+    , feedDescription = ""
+    , feedAuthorName  = "Yesheng Ma"
+    , feedAuthorEmail = "kimi.ysma@gmail.com"
+    , feedRoot        = "https://monadic.me"
+    }
 
 main :: IO ()
 main = hakyll $ do
@@ -51,6 +59,15 @@ main = hakyll $ do
                 >>= relativizeUrls
 
     match "templates/*" $ compile templateCompiler
+
+    create ["atom.xml"] $ do
+      route idRoute
+      compile $ do
+          let feedCtx = postCtx `mappend`
+                  constField "description" "This is the post description"
+
+          posts <- fmap (take 10) . recentFirst =<< loadAll "posts/*"
+          renderAtom myFeedConfiguration feedCtx posts
 
 
 --------------------------------------------------------------------------------

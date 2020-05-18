@@ -9,6 +9,15 @@
         <!-- <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/highlight.min.js"></script> -->
         <!-- <script>hljs.initHighlightingOnLoad();</script> -->
         <!--  -->
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-93074527-1"></script>
+        <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-93074527-1');
+        </script>
     </head>
     <body>
         <div class="container">
@@ -72,10 +81,12 @@
 <li><em>FlumeJava: Easy, Efficient Data-Parallel Pipelines</em> (PLDI ’10): a similar dataflow system based on MapReduce at Google.</li>
 <li><em>Resilient distributed datasets: A fault-tolerant abstraction for in-memory cluster computing</em> (NSDI ’12): distributed fault-tolerant immutable lineage graph computation engine.</li>
 <li><em>Spark SQL: Relational Data Processing in Spark</em> (SIGMOD ’15): quite similar to DryadLINQ, but compiles dataframe/SQL to Spark’s RDD abstraction.</li>
+<li><em>F1 Query: Declarative Querying at Scale</em> (VLDB ’18): unified OLTP/OLAP/ETL query engine from Google, supporting multiple data sources and an extensible UDF server.</li>
+<li>Dremel TODO</li>
 </ul>
 <h2 id="distributedcloud-databases">Distributed/Cloud Databases</h2>
 <ul>
-<li>Dremel TODO</li>
+<li>F1 DB TODO</li>
 <li>MegaStore TODO</li>
 <li>Percolator TODO</li>
 <li>Bigtable (OSDI ’06) TODO</li>

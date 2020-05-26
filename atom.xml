@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <title>Blog</title>
+    <link href="https://monadic.me/atom.xml" rel="self" />
+    <link href="https://monadic.me" />
+    <id>https://monadic.me/atom.xml</id>
+    <author>
+        <name>Yesheng Ma</name>
+        <email>kimi.ysma@gmail.com</email>
+    </author>
+    <updated>2020-05-10T00:00:00Z</updated>
+    <entry>
+    <title>Make Apache Spark's Catalyst (A Bit) Faster Again</title>
+    <link href="https://monadic.me/posts/catalyst-opt.html" />
+    <id>https://monadic.me/posts/catalyst-opt.html</id>
+    <published>2020-05-10T00:00:00Z</published>
+    <updated>2020-05-10T00:00:00Z</updated>
+    <summary type="html"><![CDATA[This is the post description]]></summary>
+</entry>
+<entry>
+    <title>Lazy Evaluation Design Pattern in Haskell</title>
+    <link href="https://monadic.me/posts/haskell-lazy.html" />
+    <id>https://monadic.me/posts/haskell-lazy.html</id>
+    <published>2020-04-11T00:00:00Z</published>
+    <updated>2020-04-11T00:00:00Z</updated>
+    <summary type="html"><![CDATA[This is the post description]]></summary>
+</entry>
+<entry>
+    <title>Notes for System Hackers</title>
+    <link href="https://monadic.me/posts/hack.html" />
+    <id>https://monadic.me/posts/hack.html</id>
+    <published>2020-03-08T00:00:00Z</published>
+    <updated>2020-03-08T00:00:00Z</updated>
+    <summary type="html"><![CDATA[This is the post description]]></summary>
+</entry>
+
+</feed>

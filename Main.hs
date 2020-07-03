@@ -21,8 +21,19 @@ myFeedConfiguration = FeedConfiguration
     , feedRoot        = "https://monadic.me"
     }
 
+myPandocBiblioCompiler :: Compiler (Item String)
+myPandocBiblioCompiler = do
+  csl <- load "acm.csl"
+  bib <- load "refs.bib"
+  getResourceBody >>=
+    readPandocBiblio defaultHakyllReaderOptions csl bib >>=
+    return . writePandoc
+
 main :: IO ()
 main = hakyll $ do
+    match "acm.csl" $ compile cslCompiler
+    match "refs.bib"    $ compile biblioCompiler
+
     match "images/*" $ do
         route   idRoute
         compile copyFileCompiler
@@ -31,15 +42,15 @@ main = hakyll $ do
         route   idRoute
         compile compressCssCompiler
 
-    match (fromList ["index.org", "notes.org", "links.org"]) $ do
+    match (fromList ["index.org", "links.org"]) $ do
         route   $ setExtension "html"
-        compile $ pandocCompiler
+        compile $ myPandocBiblioCompiler
             >>= loadAndApplyTemplate "templates/default.html" defaultContext
             >>= relativizeUrls
 
     match "posts/*.org" $ do
         route $ setExtension "html"
-        compile $ pandocCompiler
+        compile $ myPandocBiblioCompiler
             >>= loadAndApplyTemplate "templates/post.html"    postCtx
             >>= loadAndApplyTemplate "templates/default.html" postCtx
             >>= relativizeUrls

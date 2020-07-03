@@ -1,0 +1,63 @@
+---
+title: Notes for System Hackers
+date: 2020-03-08
+---
+
+* Format an Arch Linux image on an SD card on macOS
+- Install VirtualBox on macOS so that we can image an ext4 file system.
+- Follow Arch Linux wiki to format a file system on the SD card and untar the Arch Linux image onto the file system.
+- Plug in the SD card, and get its device id by =ls /dev/sd*= (in my case sdb).
+- Partition the SD card =fdisk /dev/sdb= into a 100MB FAT32 partition and a remaining ext4 partition.
+- Format and mount an FAT32 file system on the first partition: =mkfs.vfat /dev/sdb1; mkdir boot; mount /dev/sdb1 boot=.
+- Format and mount an ext4 file system on the second partition: =mkfs.vfat /dev/sdb2; mkdir root; mount /dev/sdb2 root=.
+- Download and untar the Arch Linux image:
+#+BEGIN_SRC
+wget http://os.archlinuxarm.org/os/ArchLinuxARM-rpi-4-latest.tar.gz
+bsdtar -xpf ArchLinuxARM-rpi-4-latest.tar.gz -C root
+sync
+#+END_SRC
+- Move boot files to the first partition: =mv root/boot/* boot=.
+- Unmount partitions: =umount boot root=.
+- Populate pacman key:
+#+BEGIN_SRC
+pacman-key --init
+pacman-key --populate archlinuxarm
+#+END_SRC
+- Plug in Ethernet cable and ssh to it (check IP on router).
+* Setup Arch Linux on Raspberry Pi
+First, let's check what packages are pre-installed in Arch Linux for Raspberry Pi.
+#+BEGIN_SRC
+> pacman -Qe
+
+base 2-2
+crda 4.14-3
+dhcpcd 9.1.1-1
+dialog 1:1.3_20200327-1
+haveged 1.9.9-3
+linux-raspberrypi4 5.4.42-1
+nano 4.9.3-1
+net-tools 1.60.20181103git-2
+netctl 1.23-1
+openssh 8.3p1-1
+raspberrypi-bootloader 20200528-1
+raspberrypi-bootloader-x 20200528-1
+raspberrypi-firmware 20200528-1
+vi 1:070224-4
+which 2.21-5
+wireless_tools 30.pre9-3
+wpa_supplicant 2:2.9-7
+#+END_SRC
+
+- Timezone: set default timezone =ln -sf /usr/share/zoneinfo/US/Pacific /etc/localtime=, check with =timedatectl=.
+- Localization: edit =/etc/locale.gen=, uncomment necessary locales, and run =locale-gen=. Edit =/etc/locale.conf= and set locale accordingly. Check with =localectl=.
+- Network:
+  1. Edit =/etc/hostname= to properly set hostname, and edit =/etc/hosts= accordingly.
+  2. Make sure that wireless interface is detected by =iw dev= or =ip link show=.
+  3. Turn on wireless inteface =ip link set wlan0 up=, and check with =ip link show wlan0=. Use =wifi-menu= to connect to WiFi network, and check with =ping -Iwlan0 8.8.8.8=.
+- User setup: Delete alarm user =userdel alarm=, add a new user =useradd -m -s /bin/bash username=. Install =sudo= and add your self to the sudo group (don't forget to set sudoer file by =visudo=).
+- GUI:
+  1. Install xorg as the display manager: =xorg-server= and =xf86-video-fbdev=; Use xinit to start window manager from tty: =xorg-init=.
+  2. Install a font, e.g.: =noto-fonts=.
+  3. Install a terminal emulator: =
+
+

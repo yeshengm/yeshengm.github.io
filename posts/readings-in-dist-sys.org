@@ -1,11 +1,9 @@
 ---
-title: Notes
+title: Readings in Distributed Systems
+date: 2020-06-15
 ---
-* Operating Systems
-** TODO Principles
-** TODO File Systems
-* Distributed Systems
 ** Fundamentals
+- Distributed Computing Economics
 - /Implementing Remote Procedure Calls/ (TOCS '84): the seminal paper on making remote calls look like local function calls. (Recent trends seem to admit the fundamental difference between remote and local calls though.)
 - FLP Impossibility (JACM '85) TODO
 - Lamport clock (CACM '78) TODO
@@ -23,7 +21,7 @@ title: Notes
 - Consensus on Transaction Commit TODO
 - Viewstamp Replication TODO
 - ZooKeeper (ATC'10)
-- /In Search of an Understandable Consensus Algorithm/ (ATC '14): the Raft consensus algorithm (to be precise, it's a total-order broadcast protocol).
+- Raft [@raft]: the Raft consensus algorithm (to be precise, it's a total-order broadcast protocol).
 - 2PC TODO
 - etcd TODO
 - Chord (SIGCOMM '01) TODO
@@ -36,17 +34,18 @@ title: Notes
 - /Scale and Performance in a Distributed File System/ (SOSP '87): aka AFS, with the concept of copy semantics.
 - /Frangipani: A Scalable Distributed File System/ (SOSP '97):
 - GFS (SOSP '03) TODO
-- HDFS TODO
+- HDFS, Ceph TODO
 - S3 TODO
 ** Dataflow Systems
 - /MapReduce: Simplified Data Processing on Large Clusters/ (OSDI '04): /the/ paper for parallel programming in large-scale clusters (compared with HPC-style).
-- /DryadLINQ: A System for General-Purpose Distributed Data-ParallelComputing Using a High-Level Language/ (OSDI '08): SQL-like DSL(.NET LINQ) for distributed data processing. Interesting language-integration to make distributed computing feel like local data collection manipulation!
-- /FlumeJava: Easy, Efficient Data-Parallel Pipelines/ (PLDI '10): a similar dataflow system based on MapReduce at Google.
 - /Resilient distributed datasets: A fault-tolerant abstraction for in-memory cluster computing/ (NSDI '12): distributed fault-tolerant immutable lineage graph computation engine.
-- /Spark SQL: Relational Data Processing in Spark/ (SIGMOD '15): quite similar to DryadLINQ, but compiles dataframe/SQL to Spark's RDD abstraction.
-- /F1 Query: Declarative Querying at Scale/ (VLDB '18): unified OLTP/OLAP/ETL query engine from Google, supporting multiple data sources and an extensible UDF server.
+- Snowflake TODO
 - Dremel TODO
 - Presto TODO
+- /Spark SQL: Relational Data Processing in Spark/ (SIGMOD '15): quite similar to DryadLINQ, but compiles dataframe/SQL to Spark's RDD abstraction.
+- /F1 Query: Declarative Querying at Scale/ (VLDB '18): unified OLTP/OLAP/ETL query engine from Google, supporting multiple data sources and an extensible UDF server.
+- /DryadLINQ: A System for General-Purpose Distributed Data-ParallelComputing Using a High-Level Language/ (OSDI '08): SQL-like DSL(.NET LINQ) for distributed data processing. Interesting language-integration to make distributed computing feel like local data collection manipulation!
+- /FlumeJava: Easy, Efficient Data-Parallel Pipelines/ (PLDI '10): a similar dataflow system based on MapReduce at Google.
 ** Distributed/Cloud Databases
 - F1 DB TODO
 - MegaStore TODO
@@ -57,6 +56,4 @@ title: Notes
 - /Spanner: Google’s Globally Distributed Database/ (OSDI '12): mind-blowing system with a surprising combination of serializability(2PL,2PC), MVCC(TrueTime API), linearizability(Paxos), sharding(Placement Driver) and data model(SQL).
 - Eventual consistency TODO
 - /Amazon Aurora: Design Considerations for High Throughput Cloud-Native Relational Databases/ (SIGMOD '17): intersting 6-way replication, redolog offloading and failover.
-* Databases
-** Query Compilation
-- /Efficiently Compiling Efficient Query Plans for Modern Hardware/ (VLDB '11): data-centric query processing + LLVM query compilation.
+----------------

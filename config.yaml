@@ -1,0 +1,34 @@
+baseurl: "/"
+languageCode: "en-us"
+title: "Private Investigation"
+theme: "xmin"
+googleAnalytics: ""
+disqusShortname: ""
+ignoreFiles: ["\\.Rmd$", "\\.Rmarkdown$", "_cache$", "\\.knit\\.md$", "\\.utf8\\.md$"]
+footnotereturnlinkcontents: "↩"
+
+permalinks:
+  note: "/note/:year/:month/:day/:slug/"
+  post: "/post/:year/:month/:day/:slug/"
+
+menu:
+  main:
+    - name: Home
+      url: ""
+      weight: 1
+    - name: About
+      url: "about/"
+      weight: 2
+    - name: Travel
+      url: "travel/"
+      weight: 2
+    - name: Tags
+      url: "tags/"
+      weight: 4
+    - name: Subscribe
+      url: "index.xml"
+
+params:
+  description: "Changelog"
+  footer: "&copy; [yeshengm](https://yeshengm.github.io) 2020 -- 2021 | [GitHub](https://github.com/yeshengm)"
+

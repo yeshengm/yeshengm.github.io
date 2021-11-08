@@ -55,9 +55,9 @@ body h2 {
 }
 
 body h3 {
-  font-weight: 300;
+  font-weight: 200;
   font-size: 1.5rem;
-  color: hsla(0,0%,0%,1);
+  color: hsla(0,0%,0%,0.8);
 }
 
 ul {
@@ -72,6 +72,10 @@ p {
 code {
   font-family: "Lucida Console", Monaco, monospace;
   font-size: 85%;
+}
+
+img {
+  width: 50%;
 }
 
 

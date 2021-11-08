@@ -1,7 +1,6 @@
 baseurl: "/"
 languageCode: "en-us"
 title: "Private Investigation"
-theme: "xmin"
 googleAnalytics: ""
 disqusShortname: ""
 ignoreFiles: ["\\.Rmd$", "\\.Rmarkdown$", "_cache$", "\\.knit\\.md$", "\\.utf8\\.md$"]
@@ -19,8 +18,8 @@ menu:
     - name: About
       url: "about/"
       weight: 2
-    - name: Travel
-      url: "travel/"
+    - name: Backpack
+      url: "backpack/"
       weight: 2
     - name: Tags
       url: "tags/"

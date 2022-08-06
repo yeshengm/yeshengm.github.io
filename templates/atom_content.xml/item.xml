@@ -1,0 +1,15 @@
+<entry>
+	<title type="text">${title}</title>
+	<link rel="alternate" type="text/html" href="${siteurl}/${filename}" />
+	<id>${siteurl}/${filename}</id>
+	<updated>${updated}T00:00:00Z</updated>
+	<published>${created}T00:00:00Z</published>
+	<author>
+		<name>${author}</name>
+		<uri>${siteurl}</uri>
+	</author>
+	<summary type="text">${description}</summary>
+	<content type="html"><![CDATA[<h1>${title}</h1>
+	<p><strong>Last modification on </strong> <time>${updated}</time></p>
+	%{contentfile}]]></content>
+</entry>

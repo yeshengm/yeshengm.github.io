@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="${lang}">
+	<title type="text">${sitetitle}</title>
+	<subtitle type="text">${description}</subtitle>
+	<updated>${siteupdated}T00:00:00Z</updated>
+	<link rel="alternate" type="text/html" href="${siteurl}" />
+	<id>${siteurl}/atom.xml</id>
+	<link rel="self" type="application/atom+xml" href="${siteurl}/atom.xml" />

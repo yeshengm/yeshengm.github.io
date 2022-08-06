@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"
+  xmlns:content="http://purl.org/rss/1.0/modules/content/"
+  xmlns:dc="http://purl.org/dc/elements/1.1/">
+<channel>
+	<title>=。=</title>
+	<description>boring blog</description>
+	<link>https://yeshengm.github.io</link>
+<item>
+	<title>Boring page</title>
+	<link>https://yeshengm.github.io/example.html</link>
+	<guid>https://yeshengm.github.io/example.html</guid>
+	<dc:date>2022-08-05T00:00:00Z</dc:date>
+	<author>yeshengm</author>
+	<description><![CDATA[<h1>Boring page</h1>
+        <p><strong>Last modification on </strong> <time>2022-08-05</time></p>
+        <p>example</p>
+]]></description>
+</item>
+</channel>
+</rss>

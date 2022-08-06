@@ -1,0 +1,10 @@
+<item>
+	<title>${title}</title>
+	<link>${siteurl}/${filename}</link>
+	<guid>${siteurl}/${filename}</guid>
+	<dc:date>${created}T00:00:00Z</dc:date>
+	<author>${author}</author>
+	<description><![CDATA[<h1>${title}</h1>
+        <p><strong>Last modification on </strong> <time>${updated}</time></p>
+        %{contentfile}]]></description>
+</item>
